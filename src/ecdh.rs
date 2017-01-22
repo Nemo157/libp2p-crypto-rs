@@ -27,7 +27,7 @@ impl PrivateKey {
 
     pub fn pub_key(&mut self) -> io::Result<&[u8]> {
         if self.pub_key.is_empty() {
-            self.pub_key.reserve(self.priv_key.public_key_len());
+            self.pub_key.resize(self.priv_key.public_key_len(), 0);
             self.priv_key.compute_public_key(&mut self.pub_key)
                 .map_err(|_| io::Error::new(io::ErrorKind::Other, "failed to compute public key"))?;
         }
