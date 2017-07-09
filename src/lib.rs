@@ -1,5 +1,3 @@
-#![feature(pub_restricted)]
-
 extern crate ring;
 extern crate untrusted;
 extern crate crypto;
