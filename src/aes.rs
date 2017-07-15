@@ -1,3 +1,5 @@
+use std::fmt;
+
 use crypto::aes::{ self, KeySize };
 use crypto::buffer::{ RefReadBuffer, RefWriteBuffer };
 use crypto::symmetriccipher::{
@@ -54,4 +56,16 @@ impl Decryptor for Aes256Decryptor {
         }
         Ok(output)
     }
+}
+
+impl fmt::Debug for Aes256Encryptor {
+   fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+       f.debug_struct("Aes256Encryptor").finish()
+   }
+}
+
+impl fmt::Debug for Aes256Decryptor {
+   fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+       f.debug_struct("Aes256Decryptor").finish()
+   }
 }

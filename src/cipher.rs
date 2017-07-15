@@ -8,11 +8,11 @@ pub enum CipherAlgorithm {
     __NonExhaustive,
 }
 
-pub trait Encryptor {
+pub trait Encryptor: fmt::Debug {
     fn encrypt(&mut self, data: &[u8]) -> Result<Vec<u8>, ()>;
 }
 
-pub trait Decryptor {
+pub trait Decryptor: fmt::Debug {
     fn decrypt(&mut self, data: &[u8]) -> Result<Vec<u8>, ()>;
 }
 

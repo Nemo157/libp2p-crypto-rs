@@ -1,3 +1,5 @@
+use std::fmt;
+
 use ring::{ digest, hmac };
 
 use hash::{ Signer, Verifier };
@@ -48,4 +50,16 @@ impl Verifier for Sha2256Verifier {
     fn digest_len(&self) -> usize {
         digest::SHA256.output_len
     }
+}
+
+impl fmt::Debug for Sha2256Signer {
+   fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+       f.debug_struct("Sha2256Signer").finish()
+   }
+}
+
+impl fmt::Debug for Sha2256Verifier {
+   fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+       f.debug_struct("Sha2256Verifier").finish()
+   }
 }

@@ -1,6 +1,7 @@
 use hash::{ Signer, Verifier };
 use cipher::{ Encryptor, Decryptor };
 
+#[derive(Debug)]
 pub struct SharedAlgorithms {
     pub encryptor: Box<Encryptor>,
     pub decryptor: Box<Decryptor>,

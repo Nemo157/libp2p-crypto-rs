@@ -8,12 +8,12 @@ pub enum HashAlgorithm {
     __NonExhaustive,
 }
 
-pub trait Signer {
+pub trait Signer: fmt::Debug {
     fn sign(&self, data: &[u8]) -> Vec<u8>;
     fn sign_all(&self, datas: &[&[u8]]) -> Vec<u8>;
 }
 
-pub trait Verifier {
+pub trait Verifier: fmt::Debug {
     fn verify(&self, data: &[u8], signature: &[u8]) -> Result<(), ()>;
     fn digest_len(&self) -> usize;
 }
